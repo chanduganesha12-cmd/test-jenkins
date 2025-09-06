@@ -32,7 +32,8 @@
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <cloudHub2Deployment>
+                    <deployment>
+                        <target>CH2</target>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <muleVersion>
                             <version>4.9.0</version>
@@ -47,7 +48,7 @@
                             <type>Micro</type>
                         </workers>
                         <objectStoreV2>true</objectStoreV2>
-                    </cloudHub2Deployment>
+                    </deployment>
                 </configuration>
             </plugin>
         </plugins>
