@@ -30,17 +30,17 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-						<cloudHubDeployment>
+						<cloudHub2Deployment>
 						<uri>https://anypoint.mulesoft.com</uri>
                         <muleVersion>4.9.0</muleVersion>
                          <username>chandu123456</username>
                          <password>Apple258$</password>
                          <applicationName>test</applicationName>
                          <environment>Sandbox</environment>
-                         <workers>1</workers>
-                         <workerType>Micro</workerType>
+                         <replicas>1</replicas>
+                         <region>us-east-1</region>
                          <objectStoreV2>true</objectStoreV2>
-                         </cloudHubDeployment>
+                         </cloudHub2Deployment>
                  </configuration>
 			</plugin>
 		</plugins>
