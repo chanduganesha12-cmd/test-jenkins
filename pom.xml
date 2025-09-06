@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
          https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
@@ -23,28 +22,39 @@
 
     <build>
         <plugins>
+            <!-- Clean plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.2.0</version>
             </plugin>
 
+            <!-- Mule Maven Plugin -->
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
-                <configuration>
-                    <cloudHub2Deployment>
-                        <username>chandu123456</username>
-                        <password>Apple258$</password>
-                        <applicationName>test</applicationName>
-                        <environment>Sandbox</environment>
-                        <workers>1</workers>
-                        <workerType>Micro</workerType>
-                        <objectStoreV2>true</objectStoreV2>
-                    </cloudHub2Deployment>
-                </configuration>
+                <executions>
+                    <execution>
+                        <id>deploy-to-cloudhub</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                        <configuration>
+                            <cloudHub2Deployment>
+                                <username>chandu123456</username>
+                                <password>Apple258$</password>
+                                <applicationName>test</applicationName>
+                                <environment>Sandbox</environment>
+                                <workers>1</workers>
+                                <workerType>Micro</workerType>
+                                <objectStoreV2>true</objectStoreV2>
+                            </cloudHub2Deployment>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -74,7 +84,7 @@
         <repository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
-            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
+            <url>https://repository.mulesoft.org/releases/</url>
             <layout>default</layout>
         </repository>
     </repositories>
@@ -83,8 +93,11 @@
         <pluginRepository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
-            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
             <layout>default</layout>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
