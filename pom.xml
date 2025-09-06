@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
@@ -14,41 +15,36 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
         <app.runtime>4.9.0</app.runtime>
-        <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
+        <mule.maven.plugin.version>3.9.1</mule.maven.plugin.version>
     </properties>
 
     <build>
         <plugins>
+            <!-- Maven clean plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.2.0</version>
             </plugin>
+
+            <!-- Mule Maven plugin for CloudHub 2.0 -->
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <deployment>
-                        <target>CH2</target>
-                        <uri>https://anypoint.mulesoft.com</uri>
-                        <muleVersion>
-                            <version>4.9.0</version>
-                        </muleVersion>
+                    <cloudHub2Deployment>
                         <username>chandu123456</username>
                         <password>Apple258$</password>
                         <applicationName>test</applicationName>
                         <environment>Sandbox</environment>
-                        <region>us-east-1</region>
-                        <workers>
-                            <amount>1</amount>
-                            <type>Micro</type>
-                        </workers>
+                        <workers>1</workers>
+                        <workerType>Micro</workerType>
+                        <region>US_EAST_1</region>
                         <objectStoreV2>true</objectStoreV2>
-                    </deployment>
+                    </cloudHub2Deployment>
                 </configuration>
             </plugin>
         </plugins>
@@ -95,5 +91,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 </project>
