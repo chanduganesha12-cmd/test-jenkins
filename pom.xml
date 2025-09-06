@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
          https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
@@ -15,20 +16,19 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <app.runtime>4.9.0</app.runtime>
-        <mule.maven.plugin.version>3.10.1</mule.maven.plugin.version>
+        <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
     </properties>
 
     <build>
         <plugins>
-            <!-- Maven clean plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.2.0</version>
             </plugin>
 
-            <!-- Mule Maven plugin for CloudHub 2.0 -->
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
                 <artifactId>mule-maven-plugin</artifactId>
@@ -42,7 +42,6 @@
                         <environment>Sandbox</environment>
                         <workers>1</workers>
                         <workerType>Micro</workerType>
-                        <region>US_EAST_1</region>
                         <objectStoreV2>true</objectStoreV2>
                     </cloudHub2Deployment>
                 </configuration>
@@ -75,7 +74,7 @@
         <repository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
-            <url>https://repository.mulesoft.org/releases/</url>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
             <layout>default</layout>
         </repository>
     </repositories>
@@ -84,11 +83,9 @@
         <pluginRepository>
             <id>mulesoft-releases</id>
             <name>MuleSoft Releases Repository</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
             <layout>default</layout>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
 </project>
