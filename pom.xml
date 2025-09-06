@@ -48,8 +48,9 @@
                                 <password>Apple258$</password>
                                 <applicationName>test</applicationName>
                                 <environment>Sandbox</environment>
-                                <workers>1</workers>
-                                <workerType>Micro</workerType>
+                                <target>Cloudhub-US-East-2</target>
+                                <repkicas>1</replicas>
+                                <vCores>0.1</vCores>
                                 <objectStoreV2>true</objectStoreV2>
                             </cloudHub2Deployment>
                         </configuration>
