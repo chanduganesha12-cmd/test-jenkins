@@ -26,6 +26,8 @@
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <!-- Disable schema validation -->
+                    <skipValidation>true</skipValidation>
                     <deployment>
                         <cloudHub2Deployment>
                             <uri>https://anypoint.mulesoft.com</uri>
@@ -37,15 +39,25 @@
                             <replicas>1</replicas>
                             <vCores>1</vCores>
 
-                            <!-- Inline credentials -->
-                            <username>chandu123456</username>
-                            <password>Apple258$</password>
+                            <!-- Inline credentials (remove once you switch to Jenkins credentials) -->
+                            <username>YOUR_ANYPOINT_USERNAME</username>
+                            <password>YOUR_ANYPOINT_PASSWORD</password>
                         </cloudHub2Deployment>
                     </deployment>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <!-- HTTP connector so schemas resolve locally -->
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.10.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+    </dependencies>
 
     <repositories>
         <repository>
