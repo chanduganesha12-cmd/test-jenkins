@@ -5,7 +5,7 @@
          https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mycompany</groupId>
+    <groupId>80a065be-b35f-42df-ba3f-a12548b7ffda</groupId>
     <artifactId>test</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
@@ -19,44 +19,41 @@
         <app.runtime>4.9.0</app.runtime>
         <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
     </properties>
-
     <build>
         <plugins>
-            <!-- Clean plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.2.0</version>
             </plugin>
-
-            <!-- Mule Maven Plugin -->
             <plugin>
-                <groupId>org.mule.tools.maven</groupId>
-                <artifactId>mule-maven-plugin</artifactId>
-                <version>${mule.maven.plugin.version}</version>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <id>deploy-to-cloudhub</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                        <configuration>
-                            <cloudHub2Deployment>
-                                <username>chandu123456</username>
-                                <password>Apple258$</password>
-                                <applicationName>test</applicationName>
-                                <environment>Sandbox</environment>
-                                <target>Cloudhub-US-East-2</target>
-                                <replicas>1</replicas>
-                                <vCores>0.1</vCores>
-                                <objectStoreV2>true</objectStoreV2>
-                            </cloudHub2Deployment>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+  <groupId>org.mule.tools.maven</groupId>
+  <artifactId>mule-maven-plugin</artifactId>
+  <version>3.7.1</version>
+  <extensions>true</extensions>
+  <configuration>
+    <cloudhub2Deployment>
+      <uri>https://anypoint.mulesoft.com</uri>
+      <provider>MC</provider>
+      <environment>Sandbox</environment>
+      <target>Cloudhub-US-East-2</target>
+      <muleVersion>4.9.0</muleVersion>
+      <username>candu123456</username>
+      <password>Apple258$</password>
+      <applicationName>test</applicationName>
+      <replicas>1</replicas>
+      <vCores>1</vCores>
+      <deploymentSettings>
+        <http>
+          <inbound>
+            <forwardSslSession>false</forwardSslSession>
+            <lastMileSecurity>false</lastMileSecurity>
+          </inbound>
+        </http>
+      </deploymentSettings>
+    </cloudhub2Deployment>
+  </configuration>
+</plugin>
         </plugins>
     </build>
 
