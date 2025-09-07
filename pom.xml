@@ -16,44 +16,40 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <!-- Mule runtime and Maven plugin versions -->
         <app.runtime>4.9.0</app.runtime>
-        <mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
+        <mule.maven.plugin.version>4.5.0</mule.maven.plugin.version>
     </properties>
+
     <build>
         <plugins>
+            <!-- Mule Maven Plugin -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.2.0</version>
+                <groupId>org.mule.tools.maven</groupId>
+                <artifactId>mule-maven-plugin</artifactId>
+                <version>${mule.maven.plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <cloudHub2Deployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <provider>MC</provider>
+                        <environment>Sandbox</environment>
+                        <target>Cloudhub-US-East-2</target>
+                        <muleVersion>${app.runtime}</muleVersion>
+                        <applicationName>test</applicationName>
+                        <replicas>1</replicas>
+                        <vCores>1</vCores>
+                        <deploymentSettings>
+                            <http>
+                                <inbound>
+                                    <forwardSslSession>false</forwardSslSession>
+                                    <lastMileSecurity>false</lastMileSecurity>
+                                </inbound>
+                            </http>
+                        </deploymentSettings>
+                    </cloudHub2Deployment>
+                </configuration>
             </plugin>
-            <plugin>
-  <groupId>org.mule.tools.maven</groupId>
-  <artifactId>mule-maven-plugin</artifactId>
-  <version>3.9.0</version>
-  <extensions>true</extensions>
-  <configuration>
-    <cloudhub2Deployment>
-      <uri>https://anypoint.mulesoft.com</uri>
-      <provider>MC</provider>
-      <environment>Sandbox</environment>
-      <target>Cloudhub-US-East-2</target>
-      <muleVersion>4.9.0</muleVersion>
-      <username>candu123456</username>
-      <password>Apple258$</password>
-      <applicationName>test</applicationName>
-      <replicas>1</replicas>
-      <vCores>1</vCores>
-      <deploymentSettings>
-        <http>
-          <inbound>
-            <forwardSslSession>false</forwardSslSession>
-            <lastMileSecurity>false</lastMileSecurity>
-          </inbound>
-        </http>
-      </deploymentSettings>
-    </cloudhub2Deployment>
-  </configuration>
-</plugin>
         </plugins>
     </build>
 
@@ -72,30 +68,35 @@
         </dependency>
     </dependencies>
 
+    <!-- MuleSoft repositories -->
     <repositories>
         <repository>
             <id>anypoint-exchange-v3</id>
             <name>Anypoint Exchange</name>
             <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-            <layout>default</layout>
         </repository>
         <repository>
             <id>mulesoft-releases</id>
-            <name>MuleSoft Releases Repository</name>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <layout>default</layout>
+            <name>MuleSoft Releases</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>mulesoft-snapshots</id>
+            <name>MuleSoft Snapshots</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
             <id>mulesoft-releases</id>
-            <name>MuleSoft Releases Repository</name>
-            <layout>default</layout>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <name>MuleSoft Releases</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>mulesoft-snapshots</id>
+            <name>MuleSoft Snapshots</name>
+            <url>https://repository.mulesoft.org/nexus/content/repositories/snapshots/</url>
         </pluginRepository>
     </pluginRepositories>
 
