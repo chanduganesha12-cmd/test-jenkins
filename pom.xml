@@ -43,8 +43,8 @@
                             <vCores>1</vCores>
 
                             <!-- Inline credentials (replace with your values) -->
-                            <username>YOUR_ANYPOINT_USERNAME</username>
-                            <password>YOUR_ANYPOINT_PASSWORD</password>
+                            <username>chandu123456</username>
+                            <password>Apple258$</password>
                         </cloudHub2Deployment>
                     </deployment>
                 </configuration>
