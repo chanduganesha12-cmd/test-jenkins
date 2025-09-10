@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>80a065be-b35f-42df-ba3f-a12548b7ffda</groupId>
     <artifactId>test</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
