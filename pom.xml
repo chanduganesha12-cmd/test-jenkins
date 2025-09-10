@@ -74,18 +74,7 @@
             <url>https://repository.mulesoft.org/releases/</url>
         </repository>
 </repositories>
-    <repositories>
-    <repository>
-        <id>mulesoft-releases</id>
-        <name>MuleSoft Releases Repository</name>
-        <url>https://repository.mulesoft.org/releases/</url>
-    </repository>
-    <repository>
-        <id>mulesoft-snapshots</id>
-        <name>MuleSoft Snapshots Repository</name>
-        <url>https://repository.mulesoft.org/snapshots/</url>
-    </repository>
-</repositories>
+ 
 
 <pluginRepositories>
     <pluginRepository>
@@ -101,10 +90,5 @@
 </pluginRepositories>
 
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>mulesoft-releases</id>
-            <url>https://repository.mulesoft.org/releases/</url>
-        </pluginRepository>
-    </pluginRepositories>
+  
 </project>
