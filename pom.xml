@@ -73,7 +73,7 @@
             <name>MuleSoft Releases</name>
             <url>https://repository.mulesoft.org/releases/</url>
         </repository>
-</repositories>
+    </repositories>
  
 
 <pluginRepositories>
